@@ -1,0 +1,6 @@
+1. create a virtual enviroment 
+2. activate the enviroment
+3. create requirements.txt
+4. write all required library in requirements.txt
+5. create a template.py - to create the project file structure. (in DS project all step in crate as pipeline)
+
