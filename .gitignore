@@ -207,4 +207,6 @@ marimo/_lsp/
 __marimo__/
 
 # extra files
-.vscode/
+vscode/
+logs/
+artifact/

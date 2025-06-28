@@ -1,15 +1,15 @@
 import os
 import yaml
-import src.datascience import logger
+from src.datascience import logger
 import json
 import joblib
-from ensure import ensure_annotation
+from ensure import ensure_annotations
 from box import ConfigBox
 from pathlib import Path
 from typing import Any
 from box.exceptions import BoxValueError
 
-@ensure_annotation
+@ensure_annotations
 def read_yaml(path_to_yaml: Path) -> ConfigBox:
     """reads yaml file and returns
 
@@ -33,8 +33,8 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
     except Exception as e:
         raise e
     
-@ensure_annotation
-def create_directories(path_to_directories: list, verbose = True):
+@ensure_annotations
+def create_directories(path_to_directories: list, verbose: bool = True):  
     """create list of directories
     
     Args:
@@ -46,7 +46,7 @@ def create_directories(path_to_directories: list, verbose = True):
         if verbose:
             logger.info(f"created directory at: {path}")
 
-@ensure_annotation
+@ensure_annotations
 def save_json(path: Path, data: dict):
     """save json data
 
@@ -59,7 +59,7 @@ def save_json(path: Path, data: dict):
 
     logger.info(f"json file saved at: {path}")
 
-@ensure_annotation
+@ensure_annotations
 def load_json(path: Path) -> ConfigBox:
     """load json files data
 
@@ -75,8 +75,8 @@ def load_json(path: Path) -> ConfigBox:
     logger.info(f"json file loaded succesfully from: {path}")
     return ConfigBox(content)
 
-@ensure_annotation
-def save_bin(data: Any, path: Path):
+@ensure_annotations
+def save_bin(data: Any, path: Path) -> None:
     """save binary file
 
     Args:
@@ -87,7 +87,7 @@ def save_bin(data: Any, path: Path):
     logger.info(f"binary file saved at: {path}")
 
     
-@ensure_annotation
+@ensure_annotations
 def load_bin(path: Path) -> Any:
     """load binary data
 
