@@ -21,7 +21,6 @@
 4. update the entity   
    - Defines data structures/blueprints (e.g., using dataclasses) for configurations or data objects that flow through your pipeline. Ensures type safety, clarity, and consistency.
 
-
 5. update the configuration manager in src config   
    - A class that reads YAML config files (config.yaml, params.yaml, schema.yaml), instantiates type-safe entity objects (from src/entity/config_entity.py), and provides centralized access to all project settings for pipeline components.
 

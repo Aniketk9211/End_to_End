@@ -6,3 +6,8 @@ data_ingestion:
   local_data_file: artifact/data_ingestion/data.zip
   unzip_dir: artifact/data_ingestion
 
+data_validation:
+  root_dir: artifact/data_validation
+  unzip_data_dir: artifact\data_ingestion\winequality-red.csv
+  STATUS_FILE: artifact/data_validation/status.txt   # it store where the validation is valid or not
+  
