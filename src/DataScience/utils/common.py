@@ -8,6 +8,8 @@ from box import ConfigBox
 from pathlib import Path
 from typing import Any
 from box.exceptions import BoxValueError
+from pathlib import Path
+from typing import List
 
 @ensure_annotations
 def read_yaml(path_to_yaml: Path) -> ConfigBox:
@@ -34,9 +36,9 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
         raise e
     
 @ensure_annotations
-def create_directories(path_to_directories: list, verbose: bool = True):  
-    """create list of directories
-    
+def create_directories(path_to_directories: List, verbose: bool = True):  
+    """
+    create list of directories   
     Args:
         path_to_directories (list): list of path of directories
         ignore_log (bool, optional): ignore if multiple dirs is to be created. Defaults to True.
@@ -47,9 +49,9 @@ def create_directories(path_to_directories: list, verbose: bool = True):
             logger.info(f"created directory at: {path}")
 
 @ensure_annotations
-def save_json(path: Path, data: dict):
-    """save json data
-
+def save_json(path: Path, data: dict[str, str]):
+    """
+    save json data
     Args:
         path (Path): path to json file
         data (dict): data to be saved in json file

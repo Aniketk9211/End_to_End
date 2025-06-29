@@ -5,3 +5,4 @@ data_ingestion:
   source_URL: https://github.com/krishnaik06/datasets/raw/refs/heads/main/winequality-data.zip
   local_data_file: artifact/data_ingestion/data.zip
   unzip_dir: artifact/data_ingestion
+
