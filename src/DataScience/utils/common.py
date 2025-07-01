@@ -10,6 +10,7 @@ from typing import Any
 from box.exceptions import BoxValueError
 from pathlib import Path
 from typing import List
+from typing import Dict, Any
 
 @ensure_annotations
 def read_yaml(path_to_yaml: Path) -> ConfigBox:
@@ -49,7 +50,7 @@ def create_directories(path_to_directories: List, verbose: bool = True):
             logger.info(f"created directory at: {path}")
 
 @ensure_annotations
-def save_json(path: Path, data: dict[str, str]):
+def save_json(path: Path, data: Dict):
     """
     save json data
     Args:

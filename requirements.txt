@@ -13,3 +13,4 @@ types-pyYAML
 flask
 flask-Cors
 ensure
+dagshub
