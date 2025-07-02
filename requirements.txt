@@ -12,5 +12,4 @@ joblib  # for modal save modle in serialize format
 types-pyYAML
 flask
 flask-Cors
-ensure
 dagshub

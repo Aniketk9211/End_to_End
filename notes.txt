@@ -17,140 +17,39 @@
 8. update the main.py
 
 
+# End_to_End
 
+## workflows -- Ml Pipeline
+1. Data Ingestion
+2. Data validation
+3. Data Transformation
+4. Model Training
+5. Model Evalution
 
 
+## workflows
+1. update config.yaml  
+   - Stores static project settings like file paths, directory locations, and general setup configurations.
 
+2. update schema.yaml  
+   - Defines the expected structure and data types for your datasets, ensuring data quality and consistency.Related to data validation ex: schema of new test data for input in model
 
+3. update params.yaml  
+   - Holds tunable parameters and hyperparameters for data processing, feature engineering, and machine learning models.
 
+4. update the entity   
+   - Defines data structures/blueprints (e.g., using dataclasses) for configurations or data objects that flow through your pipeline. Ensures type safety, clarity, and consistency.
 
+5. update the configuration manager in src config   
+   - A class that reads YAML config files (config.yaml, params.yaml, schema.yaml), instantiates type-safe entity objects (from src/entity/config_entity.py), and provides centralized access to all project settings for pipeline components.
 
+6. update the components
+   -Contains individual, modular, and reusable units of work for specific tasks within the pipeline (e.g., a DataIngestion class, a ModelTrainer class). Each component performs a distinct operation.
+   
+7. update the pipeline
+   -Defines the sequence of interconnected stages (e.g., data ingestion, validation, training, evaluation) that form your end-to-end data science workflow. It brings together various components.
 
+8. update the main.py 
+   -The entry point of your application. It orchestrates the execution of your data science pipeline, often by calling methods from the pipeline module.  
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-step 5
-_______________________________________________________________________________--
-import os
-from pathlib import Path
-import logging
-logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s:')
-
-project_name = "DataSciece"
-
-list_of_files=[
-    "github/workflow/.gitkeep",
-    f"src/{project_name}/__init__.py",
-    f"src/{project_name}/components/__init__.py",  # create pipeline
-    f"src/{project_name}/utils/__init__.py",     # common function
-    f"src/{project_name}/utils/common.py",
-    f"src/{project_name}/config/__init__.py",
-    f"src/{project_name}/config/configuration.py",
-    f"src/{project_name}/pipeline/__init__.py",
-    f"src/{project_name}/entity/__init__.py",
-    f"src/{project_name}/entity/config_entity.py",
-    f"src/{project_name}/constant/__init__.py",
-    "config/config.yaml",
-    "params.yaml",
-    "schema.yaml",
-    "main.py",
-    "Dockerfile",
-    "setup.py",
-    "research/reseach.ipynb",
-    "templates/index.html",
-    "requirements.txt",
-    "app.py"
-
-]
-
-# code to create file and folder:
-
-for filepath in list_of_files:
-    filepath = Path(filepath)
-    filedir, filename = os.path.split(filepath)
-
-    if filedir!="":
-        os.makedirs(filedir, exist_ok=True)
-        logging.info(f"Creating directory:{filedir} for the file {filename}")
-    if (not os.path.exists(filepath)) or (os.path.getsize(filepath)==0):
-            with open(filepath, "w") as f:
-                pass
-                logging.info(f"Creating empty file: {filepath}")
-    else:
-        logging.info(f"{filename} is already exists")
